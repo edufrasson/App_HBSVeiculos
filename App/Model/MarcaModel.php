@@ -18,7 +18,7 @@ class MarcaModel extends Model{
     public function getAll(){
         $dao = new MarcaDAO();
 
-        return $dao->getAllRows();
+        $this->rows = $dao->getAllRows();
     }
 
     public function getById($id){

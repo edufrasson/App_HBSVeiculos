@@ -8,7 +8,7 @@ class MarcaController extends Controller{
     public static function index(){
         $model = new MarcaModel();
 
-        $model = $model->getAll();
+        $model->getAll();
 
         include 'View/modules/Marca/ListarMarca.php';
     }
