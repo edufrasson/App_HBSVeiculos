@@ -13,7 +13,7 @@ class VeiculoController extends Controller
 
         $model = $model->getAll();
 
-        include 'View/modules/Veiculo/ListarVeiculo';
+        include 'View/modules/Veiculo/ListarVeiculo.php';
     }
     public static function save()
     {

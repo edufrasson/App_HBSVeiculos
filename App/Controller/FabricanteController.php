@@ -10,7 +10,7 @@ class FabricanteController extends Controller{
 
         $model = $model->getAll();
 
-        include 'View/modules/Fabricante/ListarFabricante';
+        include 'View/modules/Fabricante/ListarFabricante.php';
     }
     public static function save(){
         $model = new FabricanteModel();

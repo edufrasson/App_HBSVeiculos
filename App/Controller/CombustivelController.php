@@ -10,7 +10,7 @@ class CombustivelController extends Controller{
 
         $model = $model->getAll();
 
-        include 'View/modules/Combustivel/ListarCombustivel';
+        include 'View/modules/Combustivel/ListarCombustivel.php';
     }
     public static function save(){
         $model = new CombustivelModel();

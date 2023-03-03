@@ -10,7 +10,7 @@ class MarcaController extends Controller{
 
         $model = $model->getAll();
 
-        include 'View/modules/Marca/ListarMarca';
+        include 'View/modules/Marca/ListarMarca.php';
     }
     public static function save(){
         $model = new MarcaModel();

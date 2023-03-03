@@ -10,7 +10,7 @@ class TipoVeiculoController extends Controller{
 
         $model = $model->getAll();
 
-        include 'View/modules/TipoVeiculo/ListarTipoVeiculo';
+        include 'View/modules/TipoVeiculo/ListarTipoVeiculo.php';
     }
     public static function save(){
         $model = new TipoVeiculoModel();
