@@ -6,12 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listar Marca</title>
 </head>
-<body>
-    <header>
+<body>    
+    <main class="content-container">
+        <article class="navbar">
 
-    </header>
-    <main>
-
+        </article>
     </main>    
 </body>
 </html>
