@@ -3,6 +3,7 @@
 namespace App\DAO;
 
 use App\Model\FabricanteModel;
+use PDO;
 
 class FabricanteDAO extends DAO{
     public function __construct()
@@ -31,6 +32,8 @@ class FabricanteDAO extends DAO{
         $stmt = $this->conexao->prepare($sql);
         
         $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
     public function getById(int $id){
         $sql = "SELECT * FROM Fabricante WHERE id = ?";
@@ -39,6 +42,8 @@ class FabricanteDAO extends DAO{
         $stmt->bindValue(1, $id);
 
         $stmt->execute();
+
+        return $stmt->fetchObject();
     }
     public function delete(int $id){
         $sql = "DELETE FROM Fabricante WHERE id = ?";

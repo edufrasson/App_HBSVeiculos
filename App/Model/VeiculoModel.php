@@ -19,7 +19,7 @@ class VeiculoModel extends Model{
     public function getAll(){
         $dao = new VeiculoDAO();
 
-        return $dao->getAllRows();
+        $this->rows = $dao->getAllRows();
     }
 
     public function getById($id){

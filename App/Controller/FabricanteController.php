@@ -8,7 +8,7 @@ class FabricanteController extends Controller{
     public static function index(){
         $model = new FabricanteModel();
 
-        $model = $model->getAll();
+        $model->getAll();
 
         include 'View/modules/Fabricante/ListarFabricante.php';
     }

@@ -12,8 +12,8 @@ $(document).ready(function(){
             },
             "search": "Pesquisar:",
             "lengthMenu":     "Mostrar _MENU_ registros",
-            "zeroRecords": "Nenhum registro encontrado!",
-          }
+            "zeroRecords": "nao tem registro xd",
+          }        
     });
 
     

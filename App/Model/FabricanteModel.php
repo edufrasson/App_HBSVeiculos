@@ -18,7 +18,7 @@ class FabricanteModel extends Model{
     public function getAll(){
         $dao = new FabricanteDAO();
 
-        return $dao->getAllRows();
+        $this->rows = $dao->getAllRows();
     }
 
     public function getById($id){

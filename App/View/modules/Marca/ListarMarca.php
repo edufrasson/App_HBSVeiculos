@@ -13,32 +13,7 @@
 <body>
     <div class="content-container">
         <div class="navbar">
-            <div class="logo-container">
-                <a href="/home">
-                    <img src="View/assets/logo.png" height="110" width="110">
-                </a>
-            </div>
-            <div class="action-container">
-                <div class="link-container">
-                    <a href="/veiculo/form" class="btn btn-primary">Cadastro Veículo</a>
-                </div>
-                <div class="link-container">
-                    <a href="/veiculo" class="btn btn-primary">Listar Veículo</a>
-                </div>
-            </div>
-            <div class="dropdown-container">
-                <div class="dropdown">
-                    <a href="#" class=" btn btn-primary align-items-center link-white text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-                        Cadastros
-                    </a>
-                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-                        <li><a class="dropdown-item" href="/marca">Marca</a></li>
-                        <li><a class="dropdown-item" href="/fabricante">Fabricante</a></li>
-                        <li><a class="dropdown-item" href="/tipo">Tipo Veiculo</a></li>
-                        <li><a class="dropdown-item" href="/combustivel">Combustivel</a></li>
-                    </ul>
-                </div>
-            </div>
+            <?php include 'View/includes/navbar.php' ?>
         </div>
         <div class="content">
             <div class="main-container">
@@ -46,7 +21,10 @@
                     <h4>Cadastro de Marca</h4>
                 </div>
                 <div class="table-container">
-                    <button id="adicionar" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalMarca">Adicionar</button>
+                    <div class="button-container">
+                        <button id="adicionar" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalMarca">Adicionar</button>
+                    </div>
+
                     <div class="container-table">
                         <table id="tableMarca" class="table table-bordered table-style">
                             <thead>
@@ -55,9 +33,9 @@
                                     <th>Descricao</th>
                                 </tr>
                             </thead>
-                            <tbody>                                
-                                <?php if ($model->rows !== null) : ?>                                    
-                                    <?php foreach ($model->rows as $marca): ?>
+                            <tbody>
+                                <?php if ($model->rows !== null) : ?>
+                                    <?php foreach ($model->rows as $marca) : ?>
                                         <tr>
                                             <td><?= $marca->id ?></td>
                                             <td><?= $marca->descricao ?></td>
@@ -86,8 +64,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                   <label for="txtDescricao">Descrição:</label>
-                   <input type="text" class="form-control" id="txtDescricao">
+                    <label for="txtDescricao">Descrição:</label>
+                    <input type="text" class="form-control" id="txtDescricao">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -98,7 +76,7 @@
     </div>
     <?php include 'View/includes/js_config.php' ?>
     <script src="View/js/jquery.marca.js"></script>
-    
+
 </body>
 
 </html>

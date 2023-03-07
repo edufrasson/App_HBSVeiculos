@@ -18,7 +18,7 @@ class CombustivelModel extends Model{
     public function getAll(){
         $dao = new CombustivelDAO();
 
-        return $dao->getAllRows();
+        $this->rows = $dao->getAllRows();
     }
 
     public function getById($id){

@@ -18,7 +18,7 @@ class TipoVeiculoModel extends Model{
     public function getAll(){
         $dao = new TipoVeiculoDAO();
 
-        return $dao->getAllRows();
+        $this->rows = $dao->getAllRows();
     }
 
     public function getById($id){

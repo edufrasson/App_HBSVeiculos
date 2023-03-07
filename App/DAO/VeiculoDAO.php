@@ -1,6 +1,7 @@
 <?php
 
 namespace App\DAO;
+use PDO;
 
 use App\Model\VeiculoModel;
 
@@ -59,6 +60,8 @@ class VeiculoDAO extends DAO{
         $stmt = $this->conexao->prepare($sql);
         
         $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
     public function getById(int $id){
         $sql = "SELECT * FROM Veiculo WHERE id = ?";
@@ -67,6 +70,8 @@ class VeiculoDAO extends DAO{
         $stmt->bindValue(1, $id);
 
         $stmt->execute();
+
+        return $stmt->fetchObject();
     }
     public function delete(int $id){
         $sql = "DELETE FROM Veiculo WHERE id = ?";

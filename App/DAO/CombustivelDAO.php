@@ -3,6 +3,7 @@
 namespace App\DAO;
 
 use App\Model\CombustivelModel;
+use PDO;
 
 class CombustivelDAO extends DAO{
     public function __construct()
@@ -31,6 +32,8 @@ class CombustivelDAO extends DAO{
         $stmt = $this->conexao->prepare($sql);
         
         $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
     public function getById(int $id){
         $sql = "SELECT * FROM combustivel WHERE id = ?";
@@ -39,6 +42,8 @@ class CombustivelDAO extends DAO{
         $stmt->bindValue(1, $id);
 
         $stmt->execute();
+
+        return $stmt->fetchObject(PDO::FETCH_CLASS);
     }
     public function delete(int $id){
         $sql = "DELETE FROM combustivel WHERE id = ?";
