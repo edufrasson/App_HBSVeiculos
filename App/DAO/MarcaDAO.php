@@ -1,6 +1,7 @@
 <?php
 
 namespace App\DAO;
+use PDO;
 
 use App\Model\MarcaModel;
 
@@ -31,6 +32,8 @@ class MarcaDAO extends DAO{
         $stmt = $this->conexao->prepare($sql);
         
         $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
     public function getById(int $id){
         $sql = "SELECT * FROM Marca WHERE id = ?";
@@ -39,6 +42,8 @@ class MarcaDAO extends DAO{
         $stmt->bindValue(1, $id);
 
         $stmt->execute();
+
+        return $stmt->fetchObject();
     }
     public function delete(int $id){
         $sql = "DELETE FROM Marca WHERE id = ?";

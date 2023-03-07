@@ -55,17 +55,16 @@
                                     <th>Descricao</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <?php if ($model_marca !== null) : ?>
-                                    <?= var_dump($model_marca)?>
-                                    <?php foreach ($model_marca as $marca): ?>
+                            <tbody>                                
+                                <?php if ($model->rows !== null) : ?>                                    
+                                    <?php foreach ($model->rows as $marca): ?>
                                         <tr>
                                             <td><?= $marca->id ?></td>
                                             <td><?= $marca->descricao ?></td>
                                         </tr>
                                     <?php endforeach ?>
                                 <?php else : ?>
-
+                                    nenhum registro
                                 <?php endif ?>
                             </tbody>
                         </table>
