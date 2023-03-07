@@ -9,7 +9,7 @@ class MarcaModel extends Model{
     public function save(){
         $dao = new MarcaDAO();
         if($this->id == null){
-            $dao->insert($this);
+           return $dao->insert($this);
         }else{
             $dao->update($this);
         }

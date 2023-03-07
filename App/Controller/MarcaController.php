@@ -17,6 +17,10 @@ class MarcaController extends Controller{
 
         $model->descricao = $_POST['descricao'];
 
-        $model->save();  
+        $id = $model->save(); 
+        
+        $model->id = $id;
+
+        parent::setResponseAsJSON($model);
     }    
 }

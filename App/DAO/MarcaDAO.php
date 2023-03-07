@@ -17,6 +17,8 @@ class MarcaDAO extends DAO{
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $model->descricao);
         $stmt->execute();
+
+        return $this->conexao->lastInsertId();
     }
     public function update(MarcaModel $model){
         $sql = "UPDATE Marca SET descricao = ? WHERE id = ?";
