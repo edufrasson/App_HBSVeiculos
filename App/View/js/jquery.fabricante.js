@@ -14,6 +14,7 @@ function addFabricante(descricao) {
             error: function (result) {
                 console.log(result)
             }
+            
         });
     }
 
