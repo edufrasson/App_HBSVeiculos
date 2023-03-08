@@ -17,6 +17,8 @@ class CombustivelDAO extends DAO{
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $model->descricao);
         $stmt->execute();
+
+        return $this->conexao->lastInsertId();
     }
     public function update(CombustivelModel $model){
         $sql = "UPDATE combustivel SET descricao = ? WHERE id = ?";
@@ -25,6 +27,8 @@ class CombustivelDAO extends DAO{
         $stmt->bindValue(1, $model->descricao);
         $stmt->bindValue(2, $model->id);
         $stmt->execute();
+
+        
     }
     public function getAllRows(){
         $sql = "SELECT * FROM combustivel";

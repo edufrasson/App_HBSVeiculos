@@ -1,15 +1,15 @@
-function addFabricante(descricao) {
+function addCombustivel(descricao) {
     if (descricao !== null) {
         $.ajax({
             type: "POST",
-            url: "/fabricante/save",
+            url: "/combustivel/save",
             data: {
                 descricao: descricao
             },
             dataType: 'json',
             success: function (result) {
                 console.log(result.response_data)
-                populateTableFabricante(result.response_data.id, result.response_data.descricao)
+                populateTableCombustivel(result.response_data.id, result.response_data.descricao)
             },
             error: function (result) {
                 console.log(result)
@@ -18,12 +18,12 @@ function addFabricante(descricao) {
     }
 }
 
-function populateTableFabricante(id, descricao){
-    $('#tableFabricante').append(`<tr> <td>${id}</td> <td> ${descricao}</td> </tr>`)
+function populateTableCombustivel(id, descricao){
+    $('#tableCombustivel').append(`<tr> <td>${id}</td> <td> ${descricao}</td> </tr>`)
 }
 
 $(document).ready(function () {
-    $('#adicionarFabricante').click(function () {
-        addFabricante($('#txtDescricao').val())
+    $('#adicionarCombustivel').click(function () {
+        addCombustivel($('#txtDescricao').val())
     })    
 })

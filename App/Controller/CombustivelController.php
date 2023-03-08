@@ -8,7 +8,7 @@ class CombustivelController extends Controller{
     public static function index(){
         $model = new CombustivelModel();
 
-        $model = $model->getAll();
+        $model->getAll();
 
         include 'View/modules/Combustivel/ListarCombustivel.php';
     }
@@ -17,6 +17,8 @@ class CombustivelController extends Controller{
 
         $model->descricao = $_POST['descricao'];
 
-        $model->save();  
+        $model->id = $model->save();  
+
+        parent::setResponseAsJSON($model);
     }    
 }

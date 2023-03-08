@@ -9,7 +9,7 @@ class FabricanteModel extends Model{
     public function save(){
         $dao = new FabricanteDAO();
         if($this->id == null){
-            $dao->insert($this);
+            return $dao->insert($this);
         }else{
             $dao->update($this);
         }

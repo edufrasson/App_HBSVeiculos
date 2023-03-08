@@ -17,6 +17,8 @@ class FabricanteDAO extends DAO{
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $model->descricao);
         $stmt->execute();
+
+        return $this->conexao->lastInsertId();
     }
     public function update(FabricanteModel $model){
         $sql = "UPDATE Fabricante SET descricao = ? WHERE id = ?";

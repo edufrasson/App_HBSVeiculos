@@ -17,6 +17,8 @@ class FabricanteController extends Controller{
 
         $model->descricao = $_POST['descricao'];
 
-        $model->save();  
+        $model->id = $model->save();  
+
+        parent::setResponseAsJSON($model);
     }    
 }

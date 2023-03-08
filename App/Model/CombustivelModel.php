@@ -9,7 +9,7 @@ class CombustivelModel extends Model{
     public function save(){
         $dao = new CombustivelDAO();
         if($this->id == null){
-            $dao->insert($this);
+            return $dao->insert($this);
         }else{
             $dao->update($this);
         }
