@@ -9,7 +9,7 @@ class TipoVeiculoModel extends Model{
     public function save(){
         $dao = new TipoVeiculoDAO();
         if($this->id == null){
-            $dao->insert($this);
+            return $dao->insert($this);
         }else{
             $dao->update($this);
         }

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\DAO;
+use PDO;
 
 use App\Model\TipoVeiculoModel;
 
@@ -16,6 +17,8 @@ class TipoVeiculoDAO extends DAO{
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $model->descricao);
         $stmt->execute();
+
+        return $this->conexao->lastInsertId();
     }
     public function update(TipoVeiculoModel $model){
         $sql = "UPDATE Tipo_Veiculo SET descricao = ? WHERE id = ?";
@@ -31,6 +34,8 @@ class TipoVeiculoDAO extends DAO{
         $stmt = $this->conexao->prepare($sql);
         
         $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
     public function getById(int $id){
         $sql = "SELECT * FROM Tipo_Veiculo WHERE id = ?";
@@ -39,6 +44,8 @@ class TipoVeiculoDAO extends DAO{
         $stmt->bindValue(1, $id);
 
         $stmt->execute();
+
+        return $stmt->fetchObject();
     }
     public function delete(int $id){
         $sql = "DELETE FROM Tipo_Veiculo WHERE id = ?";

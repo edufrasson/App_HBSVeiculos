@@ -8,7 +8,7 @@ class TipoVeiculoController extends Controller{
     public static function index(){
         $model = new TipoVeiculoModel();
 
-        $model = $model->getAll();
+        $model->getAll();
 
         include 'View/modules/TipoVeiculo/ListarTipoVeiculo.php';
     }
@@ -17,6 +17,8 @@ class TipoVeiculoController extends Controller{
 
         $model->descricao = $_POST['descricao'];
 
-        $model->save();  
+        $model->id = $model->save(); 
+        
+        parent::setResponseAsJSON($model);
     }    
 }
