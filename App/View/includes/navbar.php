@@ -5,7 +5,7 @@
             </div>
             <div class="action-container">
                 <div class="link-container">
-                    <a href="/veiculo/form" class="btn btn-primary">Cadastro Veículo</a>
+                    <a href="/cadastro" class="btn btn-primary">Cadastro Veículo</a>
                 </div>
                 <div class="link-container">
                     <a href="/veiculo" class="btn btn-primary">Listar Veículo</a>

@@ -15,6 +15,18 @@ class VeiculoController extends Controller
 
         include 'View/modules/Veiculo/ListarVeiculo.php';
     }
+
+    public static function form(){
+        $model = new VeiculoModel();
+        $model->getAllMarcas();
+        $model->getAllCombustivel();
+        $model->getAllFabricantes();
+        $model->getAllTipos();
+
+        //($_GET['id']) ?  $model = $model->getById($_GET['id']) : $model;       
+
+        include 'View/modules/Veiculo/FormVeiculo.php';
+    }
     public static function save()
     {
         $id_detalhe = DetalhesVeiculoController::save();

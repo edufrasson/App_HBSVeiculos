@@ -47,6 +47,10 @@ switch ($url) {
         break;
     case '/veiculo':
         VeiculoController::index();
+        break;
+    case '/cadastro':
+        VeiculoController::form();
+        break;
     default:
         header('Location: /home');
         break;
