@@ -11,13 +11,14 @@ use App\DAO\VeiculoDAO;
 class VeiculoModel extends Model{
     public $id, $modelo, $ano, $cor, $num_chassi, $placa, $quilometragem, $observacoes;
     public $id_marca, $id_fabricante, $id_tipo, $id_combustivel, $id_detalhes;
+    
 
     public $lista_marca, $lista_fabricante, $lista_tipo, $lista_combustivel;
 
     public function save(){
         $dao = new VeiculoDAO();
         if($this->id == null){
-             $dao->insert($this);
+             return $dao->insert($this);
         }else{
              $dao->update($this);
         }

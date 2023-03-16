@@ -18,56 +18,167 @@
         <div class="content">
             <div class="main-container">
                 <div class="form-container">
+                    <div class="text-container">
+                        <h3>Cadastro de Veículos</h3>
+                    </div>
+
                     <form action="/veiculo/save" method="post">
-                        <div class="form-container-aside">
-                            <label for="modelo">Modelo:</label>
-                            <input type="text" name="modelo" id="modelo" required>
-                            <br>
-
-                            <label for="ano">Ano:</label>
-                            <input type="text" name="ano" id="ano" required>
-                            <br>
+                        <div class="form-row">
+                            <div class="form-container-aside">
+                                <div class="input-container">
+                                    <label for="modelo">Modelo:</label><br>
+                                    <input class="form-control" type="text" name="modelo" id="modelo" required>
+                                    <br>
+                                </div>
+                                <div class="input-container">
+                                    <label for="ano">Ano:</label><br>
+                                    <input class="form-control" type="number" name="ano" id="ano" min="1900"max="2200"required>
+                                    <br>
+                                </div>
+                            </div>
+                            <div class="form-container-aside">
+                                <div class="input-container">
+                                    <label for="cor">Cor:</label><br>
+                                    <input class="form-control" type="text" name="cor" id="cor" required>
+                                    <br>
+                                </div>
+                                <div class="input-container">
+                                    <label for="num_chassi">Número do Chassi:</label><br>
+                                    <input class="form-control" type="text" maxlength="17" name="num_chassi" id="num_chassi" required>
+                                    <br>
+                                </div>
+                            </div>
+                            <div class="form-container-aside">
+                                <div class="input-container">
+                                    <label for="placa">Placa:</label><br>
+                                    <input class="form-control" type="text" name="placa" id="placa" required>
+                                    <br>
+                                </div>
+                                <div class="input-container">
+                                    <label for="quilometragem">Quilometragem:</label><br>
+                                    <input class="form-control" type="text" name="quilometragem" id="quilometragem" required>
+                                    <br>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-container-aside">
-                            <label for="cor">Cor:</label>
-                            <input type="text" name="cor" id="cor" required>
-                            <br>
-
-                            <label for="num_chassi">Número do Chassi:</label>
-                            <input type="text" name="num_chassi" id="num_chassi" required>
-                            <br>
+                        <div class="form-row">
+                            <div class="form-container-aside">
+                                <div class="input-container">
+                                    <label for="obs">Marca:</label><br>
+                                    <select class="form-select" name="id_marca" required>
+                                        <option value="">Selecione uma marca!</option>
+                                        <?php foreach ($model->lista_marca as $marca) : ?>
+                                            <option value="<?= $marca->id ?>"><?= $marca->descricao ?></option>
+                                        <?php endforeach ?>
+                                    </select>
+                                    <br>
+                                </div>
+                                <div class="input-container">
+                                    <label for="obs">Fabricante:</label><br>
+                                    <select class="form-select" name="id_fabricante" required>
+                                        <option value="">Selecione um fabricante!</option>
+                                        <?php foreach ($model->lista_fabricante as $fabricante) : ?>
+                                            <option value="<?= $fabricante->id ?>"><?= $fabricante->descricao ?></option>
+                                        <?php endforeach ?>
+                                    </select>
+                                    <br>
+                                </div>
+                            </div>
+                            <div class="form-container-aside">
+                                <div class="input-container">
+                                    <label for="obs">Combustível:</label><br>
+                                    <select class="form-select" name="id_combustivel" required>
+                                        <option value="">Selecione o combustível!</option>
+                                        <?php foreach ($model->lista_combustivel as $combustivel) : ?>
+                                            <option value="<?= $combustivel->id ?>"><?= $combustivel->descricao ?></option>
+                                        <?php endforeach ?>
+                                    </select>
+                                    <br>
+                                </div>
+                                <div class="input-container">
+                                    <label for="obs">Tipo de veículo:</label><br>
+                                    <select class="form-select" name="id_tipo" required>
+                                        <option value="">Selecione um tipo!</option>
+                                        <?php foreach ($model->lista_tipo as $tipo) : ?>
+                                            <option value="<?= $tipo->id ?>"><?= $tipo->descricao ?></option>
+                                        <?php endforeach ?>
+                                    </select>
+                                    <br>
+                                </div>
+                            </div>
+                            <div class="form-container-aside">
+                                <div class="input-container">
+                                    <label for="obs">Observações:</label><br>
+                                    <input class="form-control" type="text" name="obs" id="obs">
+                                    <br>
+                                </div>
+                                <div class="input-container">
+                                    <label for="btn">Finalizar cadastro:</label><br>
+                                    <button type="button" id="finalizar" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalVeiculo">Abrir Detalhes do Veículo</button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-container-aside">
-                            <label for="placa">Placa:</label>
-                            <input type="text" name="placa" id="placa" required>
-                            <br>
 
-                            <label for="quilometragem">Quilometragem:</label>
-                            <input type="text" name="quilometragem" id="quilometragem" required>
-                            <br>
-                        </div>
-                        <div class="form-container-aside">
-                            <label for="obs">Observações:</label>
-                            <input type="text" name="obs" id="obs" required>
-                            <br>
+                        <!-- Modal -->
+                        <div class="modal fade" id="modalVeiculo" tabindex="-1" role="dialog" aria-labelledby="modalVeiculoTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4>Detalhes do Veículo</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-row">
+                                            <div class="form-container-aside">
+                                                <div class="input-container">
+                                                    <label for="chkRevisao">Revisão: </label><br>
+                                                    <input type="checkbox" class="form-check-input" name="chkRevisao" id="chkRevisao">
+                                                </div>
 
-                            <label for="obs">Marca:</label>
-                            <select name="id_marca">
-                                <?php foreach ($model->lista_marca as $marca) : ?>
-                                    <option value="<?= $marca->id ?>"><?= $marca->descricao ?></option>
-                                <?php endforeach ?>
-                            </select>
-                            <br>
-                        </div>
-                        <div class="checkbox-container">
+                                                <div class="input-container">
+                                                    <label for="chkVenda">Venda: </label><br>
+                                                    <input type="checkbox" class="form-check-input" name="chkVenda" id="chkVenda">
+                                                </div>
 
+                                                <div class="input-container">
+                                                    <label for="chkAluguel">Aluguel: </label><br>
+                                                    <input type="checkbox" class="form-check-input" name="chkAluguel" id="chkAluguel">
+                                                </div>
+                                            </div>
+                                            <div class="form-container-aside">
+                                                <div class="input-container">
+                                                    <label for="chkRoubo">Roubo ou Furto: </label><br>
+                                                    <input type="checkbox" class="form-check-input" name="chkRoubo" id="chkRoubo">
+                                                </div>
+
+                                                <div class="input-container">
+                                                    <label for="chkParticular">Particular: </label><br>
+                                                    <input type="checkbox" class="form-check-input" name="chkParticular" id="chkParticular">
+                                                </div>
+
+                                                <div class="input-container">
+                                                    <label for="chkSinistrado">Sinistrado: </label><br>
+                                                    <input type="checkbox" class="form-check-input" name="chkSinistrado" id="chkSinistrado">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                        <button type="submit" class="btn btn-primary" id="adicionarVeiculo">Salvar Registro</button>
+                                    </div>
+
+                                </div>
+
+                            </div>
                         </div>
                     </form>
                 </div>
             </div>
     </main>
     </div>
+
     <?php include 'View/includes/js_config.php' ?>
+    <script src="View/js/jquery.veiculo.js"></script>
 </body>
 
 </html>

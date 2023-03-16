@@ -48,6 +48,10 @@ switch ($url) {
     case '/veiculo':
         VeiculoController::index();
         break;
+    case '/veiculo/save':
+        VeiculoController::save();
+        break;
+
     case '/cadastro':
         VeiculoController::form();
         break;
