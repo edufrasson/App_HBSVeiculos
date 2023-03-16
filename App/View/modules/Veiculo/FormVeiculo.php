@@ -17,10 +17,11 @@
         </div>
         <div class="content">
             <div class="main-container">
+                <div class="text-container">
+                    <h3>Cadastro de Veículos</h3>
+                </div>
                 <div class="form-container">
-                    <div class="text-container">
-                        <h3>Cadastro de Veículos</h3>
-                    </div>
+
 
                     <form action="/veiculo/save" method="post">
                         <div class="form-row">
@@ -32,7 +33,7 @@
                                 </div>
                                 <div class="input-container">
                                     <label for="ano">Ano:</label><br>
-                                    <input class="form-control" type="number" name="ano" id="ano" min="1900"max="2200"required>
+                                    <input class="form-control" type="number" name="ano" id="ano" min="1900" max="2050" required>
                                     <br>
                                 </div>
                             </div>
