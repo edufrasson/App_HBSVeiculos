@@ -78,33 +78,33 @@
                         <div class="form-container-aside">
                             <div class="input-container">
                                 <label for="chkRevisao">Revisão: </label><br>
-                                <input type="checkbox" class="form-check-input" name="chkRevisao" id="chkRevisao" <?= ($veiculo->revisao == 1) ? 'checked' : "" ?>>
+                                <input type="checkbox" disabled class="form-check-input" name="chkRevisao" id="chkRevisao" <?= ($veiculo->revisao == 1) ? 'checked' : "" ?>>
                             </div>
 
                             <div class="input-container">
                                 <label for="chkVenda">Venda: </label><br>
-                                <input type="checkbox" class="form-check-input" name="chkVenda" id="chkVenda" <?= ($veiculo->venda == 1) ? 'checked' : "" ?>>
+                                <input type="checkbox" disabled class="form-check-input" name="chkVenda" id="chkVenda" <?= ($veiculo->venda == 1) ? 'checked' : "" ?>>
                             </div>
 
                             <div class="input-container">
                                 <label for="chkAluguel">Aluguel: </label><br>
-                                <input type="checkbox" class="form-check-input" name="chkAluguel" id="chkAluguel" <?= ($veiculo->aluguel == 1) ? 'checked' : "" ?>>
+                                <input type="checkbox" disabled  class="form-check-input" name="chkAluguel" id="chkAluguel" <?= ($veiculo->aluguel == 1) ? 'checked' : "" ?>>
                             </div>
                         </div>
                         <div class="form-container-aside">
                             <div class="input-container">
                                 <label for="chkRoubo">Roubo ou Furto: </label><br>
-                                <input type="checkbox" class="form-check-input" name="chkRoubo" id="chkRoubo" <?= ($veiculo->roubo == 1) ? 'checked' : "" ?>>
+                                <input type="checkbox" disabled class="form-check-input" name="chkRoubo" id="chkRoubo" <?= ($veiculo->roubo == 1) ? 'checked' : "" ?>>
                             </div>
 
                             <div class="input-container">
                                 <label for="chkParticular">Particular: </label><br>
-                                <input type="checkbox" class="form-check-input" name="chkParticular" id="chkParticular" <?= ($veiculo->particular == 1) ? 'checked' : "" ?>>
+                                <input type="checkbox" disabled class="form-check-input" name="chkParticular" id="chkParticular" <?= ($veiculo->particular == 1) ? 'checked' : "" ?>>
                             </div>
 
                             <div class="input-container">
                                 <label for="chkSinistrado">Sinistrado: </label><br>
-                                <input type="checkbox" class="form-check-input" name="chkSinistrado" id="chkSinistrado" <?= ($veiculo->sinistrado == 1) ? 'checked' : "" ?>>
+                                <input type="checkbox" disabled class="form-check-input" name="chkSinistrado" id="chkSinistrado" <?= ($veiculo->sinistrado == 1) ? 'checked' : "" ?>>
                             </div>
                         </div>
                     </div>
