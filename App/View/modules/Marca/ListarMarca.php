@@ -31,6 +31,7 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Descricao</th>
+                                    <th>Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -39,6 +40,10 @@
                                         <tr>
                                             <td><?= $marca->id ?></td>
                                             <td><?= $marca->descricao ?></td>
+                                            <td class="actions-list">
+                                                <box-icon name="edit" color="blue" id="<?= $marca->id?>"data-bs-toggle="modal" data-bs-target="#modalMarca" class="btn-icon btn-edit"></box-icon>
+                                                <box-icon name="trash" color="red" id="<?= $marca->id?>" class="btn-icon btn-delete"></box-icon>
+                                            </td>
                                         </tr>
                                     <?php endforeach ?>
                                 <?php else : ?>
@@ -64,6 +69,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <input type="hidden" name="id" id="id">
+
                     <label for="txtDescricao">Descrição:</label>
                     <input type="text" class="form-control" id="txtDescricao">
                 </div>

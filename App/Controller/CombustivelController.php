@@ -12,13 +12,27 @@ class CombustivelController extends Controller{
 
         include 'View/modules/Combustivel/ListarCombustivel.php';
     }
+    public static function getById(){
+        $model = new CombustivelModel();
+
+        parent::setResponseAsJSON($model->getById($_GET['id']));
+    }
     public static function save(){
         $model = new CombustivelModel();
 
+        $model->id = $_POST['id'];
         $model->descricao = $_POST['descricao'];
 
         $model->id = $model->save();  
 
         parent::setResponseAsJSON($model);
+
+        header('Location: /combustivel');
     }    
+
+    public static function delete(){
+        $model = new CombustivelModel();
+
+        $model->delete($_GET['id']);
+    }
 }

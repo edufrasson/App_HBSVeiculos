@@ -5,6 +5,11 @@ namespace App\Controller;
 use App\Model\TipoVeiculoModel;
 
 class TipoVeiculoController extends Controller{
+    public static function getById(){
+        $model = new TipoVeiculoModel();
+
+        parent::setResponseAsJSON($model->getById($_GET['id']));
+    }
     public static function index(){
         $model = new TipoVeiculoModel();
 
@@ -14,11 +19,20 @@ class TipoVeiculoController extends Controller{
     }
     public static function save(){
         $model = new TipoVeiculoModel();
-
+        
+        $model->id = $_POST['id'];
         $model->descricao = $_POST['descricao'];
 
         $model->id = $model->save(); 
         
-        parent::setResponseAsJSON($model);
+        header('Location: /tipo');
+
+        parent::setResponseAsJSON($model);        
     }    
+
+    public static function delete(){
+        $model = new TipoVeiculoModel();
+
+        $model->delete($_GET['id']);
+    }
 }
