@@ -31,6 +31,7 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Descricao</th>
+                                    <th>Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -39,6 +40,10 @@
                                         <tr>
                                             <td><?= $tipo->id ?></td>
                                             <td><?= $tipo->descricao ?></td>
+                                            <td class="actions-list">
+                                                <box-icon name="edit" color="blue" id="<?= $tipo->id ?>" data-bs-toggle="modal" data-bs-target="#modalTipo" class="btn-icon btn-edit"></box-icon>
+                                                <box-icon name="trash" color="red" id="<?= $tipo->id ?>" class="btn-icon btn-delete"></box-icon>
+                                            </td>
                                         </tr>
                                     <?php endforeach ?>
                                 <?php else : ?>
@@ -63,14 +68,17 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <label for="txtDescricao">Descrição:</label>
-                    <input type="text" class="form-control" id="txtDescricao">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary" id="adicionarTipo">Salvar Registro</button>
-                </div>
+                <form method="POST" action="/tipo/save">
+                    <div class="modal-body">
+                        <input type="hidden" name="id" id="id">
+                        <label for="txtDescricao">Descrição:</label>
+                        <input type="text" name="descricao" class="form-control" id="txtDescricao" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary" id="adicionarTipo">Salvar Registro</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

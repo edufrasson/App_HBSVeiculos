@@ -47,7 +47,7 @@ class CombustivelDAO extends DAO{
 
         $stmt->execute();
 
-        return $stmt->fetchObject(PDO::FETCH_CLASS);
+        return $stmt->fetchObject();
     }
     public function delete(int $id){
         $sql = "DELETE FROM combustivel WHERE id = ?";

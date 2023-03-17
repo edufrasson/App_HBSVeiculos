@@ -68,16 +68,17 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <input type="hidden" name="id" id="id">
-
-                    <label for="txtDescricao">Descrição:</label>
-                    <input type="text" class="form-control" id="txtDescricao">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary" id="adicionarMarca">Salvar Registro</button>
-                </div>
+                <form method="POST" action="/marca/save">
+                    <div class="modal-body">
+                        <input type="hidden" name="id" id="id">
+                        <label for="txtDescricao">Descrição:</label>
+                        <input type="text" name="descricao" class="form-control" id="txtDescricao" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary" id="adicionarTipo">Salvar Registro</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

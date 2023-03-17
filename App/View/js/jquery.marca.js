@@ -1,8 +1,6 @@
-var update_descricao;
-var update_id;
 
 function addMarca(id, descricao) {
-    if (descricao !== null) {
+    if (descricao !== "") {
         $.ajax({
             type: "POST",
             url: "/marca/save",
@@ -52,18 +50,8 @@ function deleteMarca(id){
 }
 
 $(document).ready(function () {
-    $('#adicionarMarca').click(function () {
-        addMarca($('#id').val(), $('#txtDescricao').val())
-
-        window.location.reload(true); 
-    })
-    
     $('.btn-edit').click(function(event){
-        console.log('captou')
-
-        var id = event.target.id;
-
-        getMarcaById(id);        
+        getMarcaById(event.target.id);        
     })
 
     $('.btn-delete').click(function(event){

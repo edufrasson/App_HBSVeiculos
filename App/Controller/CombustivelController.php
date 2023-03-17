@@ -25,9 +25,10 @@ class CombustivelController extends Controller{
 
         $model->id = $model->save();  
 
-        parent::setResponseAsJSON($model);
-
+        
         header('Location: /combustivel');
+        
+        parent::setResponseAsJSON($model);
     }    
 
     public static function delete(){

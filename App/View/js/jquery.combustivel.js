@@ -18,12 +18,44 @@ function addCombustivel(descricao) {
     }
 }
 
-function populateTableCombustivel(id, descricao){
-    $('#tableCombustivel').append(`<tr> <td>${id}</td> <td> ${descricao}</td> </tr>`)
+
+function getCombustivelById(id){
+    $.ajax({
+        type: "GET",
+        url: "/combustivel/get-by-id?id=" + id,        
+        dataType: 'json',
+        success: function (result) {       
+            $('#txtDescricao').val(result.response_data.descricao);
+            $('#id').val(result.response_data.id);
+        },
+        error: function (result) {
+            console.log(result)
+        }
+    });
+}
+
+function deleteCombustivel(id){
+    $.ajax({
+        type: "GET",
+        url: "/combustivel/delete?id=" + id,        
+        dataType: 'json',
+        success: function (result) {       
+            console.log(result)
+        },
+        error: function (result) {
+            console.log(result)
+        }
+    });
 }
 
 $(document).ready(function () {
-    $('#adicionarCombustivel').click(function () {
-        addCombustivel($('#txtDescricao').val())
-    })    
+    $('.btn-edit').click(function(event){
+        getCombustivelById(event.target.id);        
+    })
+
+    $('.btn-delete').click(function(event){
+        deleteCombustivel(event.target.id);
+
+        window.location.reload(true); 
+    })
 })

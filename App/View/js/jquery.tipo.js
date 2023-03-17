@@ -9,7 +9,7 @@ function addTipo(descricao) {
             dataType: 'json',
             success: function (result) {
                 console.log(result.response_data)
-                populateTableTipo(result.response_data.id, result.response_data.descricao)
+                
             },
             error: function (result) {
                 console.log(result)
@@ -19,13 +19,46 @@ function addTipo(descricao) {
 
 }
 
-function populateTableTipo(id, descricao){
-    $('#tableTipo').append(`<tr> <td>${id}</td> <td> ${descricao}</td> </tr>`)
+function getTipoById(id){
+    $.ajax({
+        type: "GET",
+        url: "/tipo/get-by-id?id=" + id,        
+        dataType: 'json',
+        success: function (result) {       
+            $('#txtDescricao').val(result.response_data.descricao);
+            $('#id').val(result.response_data.id);
+        },
+        error: function (result) {
+            console.log(result)
+        }
+    });
 }
 
+function deleteTipo(id){
+    $.ajax({
+        type: "GET",
+        url: "/tipo/delete?id=" + id,        
+        dataType: 'json',
+        success: function (result) {       
+            console.log(result)
+        },
+        error: function (result) {
+            console.log(result)
+        }
+    });
+}
+
+
+
+
 $(document).ready(function () {
-    $('#adicionarTipo').click(function () {
-        addTipo($('#txtDescricao').val())
+    $('.btn-edit').click(function(event){  
+        getTipoById(event.target.id);        
     })
-   
+
+    $('.btn-delete').click(function(event){
+        deleteTipo(event.target.id);
+
+        window.location.reload(true); 
+    })
 })
