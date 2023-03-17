@@ -33,6 +33,7 @@
                                     <th>Quilometragem</th>
                                     <th>Detalhes</th>
                                     <th>Informações</th>
+                                    <th>Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -47,7 +48,10 @@
                                             <td><?= $veiculo->quilometragem ?></td>
                                             <td><button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#modalListaDetalhes">Ver Detalhes</button></td>
                                             <td><button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#modalListaInformacoes">Ver Informações</button></td>
-
+                                            <td class="actions-list">
+                                                <box-icon name="edit" color="blue" id="<?= $veiculo->id?>" class="btn-icon btn-edit"><a href="/veiculo/form?id=<?= $veiculo->id?>"></a></box-icon>
+                                                <box-icon name="trash" color="red" id="<?= $veiculo->id?>" class="btn-icon btn-delete"></box-icon>
+                                            </td>
                                         </tr>
                                     <?php endforeach ?>
                                 <?php else : ?>

@@ -18,12 +18,13 @@ class VeiculoController extends Controller
 
     public static function form(){
         $model = new VeiculoModel();
+        $model_update = new VeiculoModel();
         $model->getAllMarcas();
         $model->getAllCombustivel();
         $model->getAllFabricantes();
         $model->getAllTipos();
 
-        //($_GET['id']) ?  $model = $model->getById($_GET['id']) : $model;       
+        (isset($_GET['id'])) ?  $model_update = $model->getById($_GET['id']) : $model;       
 
         include 'View/modules/Veiculo/FormVeiculo.php';
     }
@@ -50,4 +51,5 @@ class VeiculoController extends Controller
         
         header('Location: /veiculo');
     }
+
 }

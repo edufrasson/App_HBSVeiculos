@@ -28,7 +28,7 @@
                             <div class="form-container-aside">
                                 <div class="input-container">
                                     <label for="modelo">Modelo:</label><br>
-                                    <input class="form-control" type="text" name="modelo" id="modelo" required>
+                                    <input class="form-control" type="text" name="modelo" id="modelo" value="<?= $model_update->modelo?>" required>
                                     <br>
                                 </div>
                                 <div class="input-container">
