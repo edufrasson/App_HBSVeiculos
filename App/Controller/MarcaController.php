@@ -22,7 +22,7 @@ class MarcaController extends Controller{
         
         $model->id = $id;
 
-        self::index();        
+        header("Location: /marca");     
     }    
 
     public static function getById(){
