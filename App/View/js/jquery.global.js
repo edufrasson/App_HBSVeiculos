@@ -12,7 +12,7 @@ $(document).ready(function(){
             },
             "search": "Pesquisar:",
             "lengthMenu":     "Mostrar _MENU_ registros",
-            "zeroRecords": "nao tem registro xd",
+            "zeroRecords": "Nenhum registro encontrado!",
           }        
     });
 
