@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="input-container">
                                     <label for="num_chassi">Número do Chassi:</label><br>
-                                    <input class="form-control" type="text" maxlength="17" name="num_chassi" id="num_chassi" required>
+                                    <input class="form-control" type="number" maxlength="17" name="num_chassi" id="num_chassi" required>
                                     <br>
                                 </div>
                             </div>
@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="input-container">
                                     <label for="quilometragem">Quilometragem:</label><br>
-                                    <input class="form-control" type="text" name="quilometragem" id="quilometragem" required>
+                                    <input class="form-control" type="number" name="quilometragem" id="quilometragem" maxlength="17" required>
                                     <br>
                                 </div>
                             </div>
@@ -110,7 +110,7 @@
                             <div class="form-container-aside">
                                 <div class="input-container">
                                     <label for="obs">Observações:</label><br>
-                                    <input class="form-control" type="text" name="obs" id="obs">
+                                    <input class="form-control" type="text" name="obs" id="obs" maxlength="255">
                                     <br>
                                 </div>
                                 <div class="input-container">
