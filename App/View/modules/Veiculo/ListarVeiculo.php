@@ -49,7 +49,7 @@
                                             <td><button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#modalListaDetalhes">Ver Detalhes</button></td>
                                             <td><button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#modalListaInformacoes">Ver Informações</button></td>
                                             <td class="actions-list">
-                                                <box-icon name="edit" color="blue" id="<?= $veiculo->id?>" class="btn-icon btn-edit"><a href="/veiculo/form?id=<?= $veiculo->id?>"></a></box-icon>
+                                               <a href="/cadastro?id=<?= $veiculo->id?>"> <box-icon name="edit" color="blue" id="<?= $veiculo->id?>" class="btn-icon btn-edit"></box-icon></a>
                                                 <box-icon name="trash" color="red" id="<?= $veiculo->id?>" class="btn-icon btn-delete"></box-icon>
                                             </td>
                                         </tr>

@@ -34,6 +34,7 @@ class VeiculoController extends Controller
 
         $model_veiculo = new VeiculoModel();
 
+        $model_veiculo->id = $_POST['id'];
         $model_veiculo->modelo = $_POST['modelo'];
         $model_veiculo->ano = $_POST['ano'];
         $model_veiculo->cor = $_POST['cor'];
@@ -47,7 +48,7 @@ class VeiculoController extends Controller
         $model_veiculo->id_combustivel = $_POST['id_combustivel'];
         $model_veiculo->id_detalhes =  $id_detalhe;
 
-        $model_veiculo->save();     
+        $model_veiculo->save();   
         
         header('Location: /veiculo');
     }

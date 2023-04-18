@@ -105,3 +105,8 @@ body{
 .btn-icon{
     cursor: pointer;  
 }
+
+.actions-list{
+    display: flex;
+    justify-content: space-around;
+}

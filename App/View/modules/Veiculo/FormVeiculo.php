@@ -26,6 +26,8 @@
                     <form action="/veiculo/save" method="post">
                         <div class="form-row">
                             <div class="form-container-aside">
+                                <input type="hidden" name="id" value="<?= $model_update->id?>">
+
                                 <div class="input-container">
                                     <label for="modelo">Modelo:</label><br>
                                     <input class="form-control" type="text" name="modelo" id="modelo" value="<?= $model_update->modelo?>" required>
@@ -33,31 +35,31 @@
                                 </div>
                                 <div class="input-container">
                                     <label for="ano">Ano:</label><br>
-                                    <input class="form-control" type="number" name="ano" id="ano" min="1900" max="2050" required>
+                                    <input class="form-control" type="number" name="ano" id="ano" min="1900" max="2050" value="<?= $model_update->ano?>"required>
                                     <br>
                                 </div>
                             </div>
                             <div class="form-container-aside">
                                 <div class="input-container">
                                     <label for="cor">Cor:</label><br>
-                                    <input class="form-control" type="text" name="cor" id="cor" required>
+                                    <input class="form-control" type="text" name="cor" id="cor" value="<?= $model_update->cor?>"required>
                                     <br>
                                 </div>
                                 <div class="input-container">
                                     <label for="num_chassi">Número do Chassi:</label><br>
-                                    <input class="form-control" type="number" maxlength="17" name="num_chassi" id="num_chassi" required>
+                                    <input class="form-control" type="text" maxlength="17" name="num_chassi" id="num_chassi" value="<?= $model_update->num_chassi?>"required>
                                     <br>
                                 </div>
                             </div>
                             <div class="form-container-aside">
                                 <div class="input-container">
                                     <label for="placa">Placa:</label><br>
-                                    <input class="form-control" type="text" name="placa" id="placa" required>
+                                    <input class="form-control" type="text" name="placa" id="placa" value="<?= $model_update->placa?>"required>
                                     <br>
                                 </div>
                                 <div class="input-container">
                                     <label for="quilometragem">Quilometragem:</label><br>
-                                    <input class="form-control" type="number" name="quilometragem" id="quilometragem" maxlength="17" required>
+                                    <input class="form-control" type="text" name="quilometragem" id="quilometragem" required>
                                     <br>
                                 </div>
                             </div>
@@ -69,7 +71,7 @@
                                     <select class="form-select" name="id_marca" required>
                                         <option value="">Selecione uma marca!</option>
                                         <?php foreach ($model->lista_marca as $marca) : ?>
-                                            <option value="<?= $marca->id ?>"><?= $marca->descricao ?></option>
+                                            <option value="<?= $marca->id ?>" <?= ($marca->id == $model_update->id_marca) ? 'selected' : '' ?>><?= $marca->descricao ?></option>
                                         <?php endforeach ?>
                                     </select>
                                     <br>
@@ -79,7 +81,7 @@
                                     <select class="form-select" name="id_fabricante" required>
                                         <option value="">Selecione um fabricante!</option>
                                         <?php foreach ($model->lista_fabricante as $fabricante) : ?>
-                                            <option value="<?= $fabricante->id ?>"><?= $fabricante->descricao ?></option>
+                                            <option value="<?= $fabricante->id ?>" <?= ($fabricante->id == $model_update->id_fabricante) ? 'selected' : '' ?>><?= $fabricante->descricao ?></option>
                                         <?php endforeach ?>
                                     </select>
                                     <br>
@@ -91,7 +93,7 @@
                                     <select class="form-select" name="id_combustivel" required>
                                         <option value="">Selecione o combustível!</option>
                                         <?php foreach ($model->lista_combustivel as $combustivel) : ?>
-                                            <option value="<?= $combustivel->id ?>"><?= $combustivel->descricao ?></option>
+                                            <option value="<?= $combustivel->id ?>" <?= ($combustivel->id == $model_update->id_combustivel) ? 'selected' : '' ?>><?= $combustivel->descricao ?></option>
                                         <?php endforeach ?>
                                     </select>
                                     <br>
@@ -101,7 +103,7 @@
                                     <select class="form-select" name="id_tipo" required>
                                         <option value="">Selecione um tipo!</option>
                                         <?php foreach ($model->lista_tipo as $tipo) : ?>
-                                            <option value="<?= $tipo->id ?>"><?= $tipo->descricao ?></option>
+                                            <option value="<?= $tipo->id ?>" <?= ($tipo->id == $model_update->id_tipo) ? 'selected' : '' ?>><?= $tipo->descricao ?></option>
                                         <?php endforeach ?>
                                     </select>
                                     <br>
@@ -110,7 +112,7 @@
                             <div class="form-container-aside">
                                 <div class="input-container">
                                     <label for="obs">Observações:</label><br>
-                                    <input class="form-control" type="text" name="obs" id="obs" maxlength="255">
+                                    <input class="form-control" type="text" name="obs" id="obs">
                                     <br>
                                 </div>
                                 <div class="input-container">
@@ -132,33 +134,33 @@
                                             <div class="form-container-aside">
                                                 <div class="input-container">
                                                     <label for="chkRevisao">Revisão: </label><br>
-                                                    <input type="checkbox" class="form-check-input" name="chkRevisao" id="chkRevisao">
+                                                    <input type="checkbox" class="form-check-input" name="chkRevisao" id="chkRevisao" <?= ($model_update->revisao == 1) ? 'checked' : '' ?>>
                                                 </div>
 
                                                 <div class="input-container">
                                                     <label for="chkVenda">Venda: </label><br>
-                                                    <input type="checkbox" class="form-check-input" name="chkVenda" id="chkVenda">
+                                                    <input type="checkbox" class="form-check-input" name="chkVenda" id="chkVenda" <?= ($model_update->venda == 1) ? 'checked' : '' ?>>
                                                 </div>
 
                                                 <div class="input-container">
                                                     <label for="chkAluguel">Aluguel: </label><br>
-                                                    <input type="checkbox" class="form-check-input" name="chkAluguel" id="chkAluguel">
+                                                    <input type="checkbox" class="form-check-input" name="chkAluguel" id="chkAluguel" <?= ($model_update->aluguel == 1) ? 'checked' : '' ?>>
                                                 </div>
                                             </div>
                                             <div class="form-container-aside">
                                                 <div class="input-container">
                                                     <label for="chkRoubo">Roubo ou Furto: </label><br>
-                                                    <input type="checkbox" class="form-check-input" name="chkRoubo" id="chkRoubo">
+                                                    <input type="checkbox" class="form-check-input" name="chkRoubo" id="chkRoubo" <?= ($model_update->roubo == 1) ? 'checked' : '' ?>>
                                                 </div>
 
                                                 <div class="input-container">
                                                     <label for="chkParticular">Particular: </label><br>
-                                                    <input type="checkbox" class="form-check-input" name="chkParticular" id="chkParticular">
+                                                    <input type="checkbox" class="form-check-input" name="chkParticular" id="chkParticular" <?= ($model_update->particular == 1) ? 'checked' : '' ?>>
                                                 </div>
 
                                                 <div class="input-container">
                                                     <label for="chkSinistrado">Sinistrado: </label><br>
-                                                    <input type="checkbox" class="form-check-input" name="chkSinistrado" id="chkSinistrado">
+                                                    <input type="checkbox" class="form-check-input" name="chkSinistrado" id="chkSinistrado" <?= ($model_update->sinistrado == 1) ? 'checked' : '' ?>>
                                                 </div>
                                             </div>
                                         </div>

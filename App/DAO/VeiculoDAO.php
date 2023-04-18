@@ -91,7 +91,7 @@ class VeiculoDAO extends DAO{
                         tv.descricao as tipo,
                         c.descricao as combustivel,
                         dv.aluguel as aluguel,
-                        dv.particular as particulas,
+                        dv.particular as particular,
                         dv.revisao as revisao,
                         dv.roubo_furto as roubo,
                         dv.venda as venda,
@@ -102,6 +102,7 @@ class VeiculoDAO extends DAO{
         JOIN combustivel c on c.id = v.id_combustivel
         JOIN tipo_veiculo tv on tv.id = v.id_tipo
         JOIN detalhes_veiculo dv on dv.id = v.id_detalhes
+        WHERE v.id = ?
         ";
 
         $stmt = $this->conexao->prepare($sql);

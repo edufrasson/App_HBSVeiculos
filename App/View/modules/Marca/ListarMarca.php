@@ -72,7 +72,7 @@
                     <div class="modal-body">
                         <input type="hidden" name="id" id="id">
                         <label for="txtDescricao">Descrição:</label>
-                        <input type="text" name="descricao" class="form-control" id="txtDescricao" required>
+                        <input type="text" name="descricao" class="form-control" id="txtDescricao" required maxlength="90">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
