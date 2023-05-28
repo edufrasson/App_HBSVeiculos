@@ -16,5 +16,49 @@ $(document).ready(function(){
           }        
     });
 
-    
+    $('#exportButton').click(function(){
+        $.ajax({
+            type: "GET",
+            url: "/export",       
+            success: function (){       
+                swal({  
+                    title: "Sucesso!",  
+                    text: "Os dados foram exportados corretamente!!",  
+                    icon: "success",  
+                    button: "OK",  
+                  });  
+            },
+            error: function (){
+                swal({  
+                    title: "Erro!",  
+                    text: "Os dados não foram exportados corretamente!",  
+                    icon: "error",  
+                    button: "OK",  
+                  });  
+            }
+        });
+    })
+
+    $('#importButton').click(function(){
+        $.ajax({
+            type: "GET",
+            url: "/import",       
+            success: function (){       
+                swal({  
+                    title: "Sucesso!",  
+                    text: "Os dados foram importados corretamente!!",  
+                    icon: "success",  
+                    button: "OK",  
+                  });  
+            },
+            error: function (){
+                swal({  
+                    title: "Erro!",  
+                    text: "Os dados não foram importados corretamente!",  
+                    icon: "error",  
+                    button: "OK",  
+                  });  
+            }
+        });
+    })
 })

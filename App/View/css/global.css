@@ -110,3 +110,14 @@ body{
     display: flex;
     justify-content: space-around;
 }
+
+.data-container{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.data-buttons{
+    cursor: pointer;
+}

@@ -1,6 +1,7 @@
 <?php
 
 use App\Controller\{
+    BackupController,
     MarcaController,
     FabricanteController,
     CombustivelController,
@@ -81,7 +82,16 @@ switch ($url) {
     case '/cadastro':
         VeiculoController::form();
         break;
+
+    case '/export':
+        BackupController::export();
+        break;  
+    case '/import':
+        BackupController::import();
+        break;   
+
     default:
+        BackupController::import();
         header('Location: /home');
         break;
 }
