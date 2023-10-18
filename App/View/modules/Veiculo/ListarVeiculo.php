@@ -46,10 +46,10 @@
                                             <td><?= $veiculo->num_chassi ?></td>
                                             <td><?= $veiculo->placa ?></td>
                                             <td><?= $veiculo->quilometragem ?></td>
-                                            <td><button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#modalListaDetalhes">Ver Detalhes</button></td>
-                                            <td><button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#modalListaInformacoes">Ver Informações</button></td>
+                                            <td><button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#modalListaDetalhes">Ver</button></td>
+                                            <td><button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#modalListaInformacoes">Ver</button></td>
                                             <td class="actions-list">
-                                               <a href="/cadastro?id=<?= $veiculo->id?>"> <box-icon name="edit" color="blue" id="<?= $veiculo->id?>" class="btn-icon btn-edit"></box-icon></a>
+                                                  <box-icon name="edit" color="blue" id="<?= $veiculo->id?>" class="btn-icon btn-edit"></box-icon>
                                                 <box-icon name="trash" color="red" id="<?= $veiculo->id?>" class="btn-icon btn-delete"></box-icon>
                                             </td>
                                         </tr>
